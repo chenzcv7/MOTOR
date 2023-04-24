@@ -1,6 +1,6 @@
 import torch.nn.functional as F
 from models.med import BertConfig, BertModel, BertLMHeadModel
-from medical_knowledge.SKG_knowledge import *
+from medical_knowledge.GK_knowledge import *
 
 class create_knowledge(nn.Module):
     def __init__(self,

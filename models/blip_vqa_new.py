@@ -2,8 +2,8 @@ from models.med import BertConfig, BertModel, BertLMHeadModel
 from models.blip import create_vit, init_tokenizer, load_checkpoint
 
 import numpy as np
-from medical_knowledge.knowledge import create_knowledge
-from medical_knowledge.SKG_knowledge import *
+from medical_knowledge.SK_knowledge import create_knowledge
+from medical_knowledge.GK_knowledge import *
 from models.tagencoder import TagEncoder
 
 def seperate_C(v, q, answer_target, q_mask):  # q: b x 12 x 1024  v:  b x 1 x 128 answer_target : 1 x b

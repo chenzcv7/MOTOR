@@ -55,19 +55,19 @@ class pretrain_dataset(Dataset):
         image = Image.open(os.path.join(self.mimic_image_dir, image_path[0])).convert('RGB')
         image = self.transform(image)
 
-        knowledge_skg = nodes
+        knowledge_gk = nodes
 
         triplet_len = len(ann['triplet'])
         if triplet_len > 30:
             triplets = ann['triplet'][:30]
-            knowledge_tc = '-'.join(triplets)
+            knowledge_sk = '-'.join(triplets)
         else:
-            knowledge_tc = '-'.join(ann['triplet'])
+            knowledge_sk = '-'.join(ann['triplet'])
 
-        knowledge_tc = pre_caption(knowledge_tc, self.max_words)  #triplet can see each other
+        knowledge_sk = pre_caption(knowledge_sk, self.max_words)  #triplet can see each other
 
         report = pre_caption(ann['report'], self.max_words)
 
         label = np.array(ann['label_index'])
 
-        return image, report, knowledge_skg, knowledge_tc, label
+        return image, report, knowledge_gk, knowledge_sk, label

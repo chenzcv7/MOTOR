@@ -52,7 +52,7 @@ logger = logging.get_logger(__name__)
 class BertEmbeddings(nn.Module):
     """Construct the embeddings from word and position embeddings."""
 
-    def __init__(self, config, SKG_know=False):
+    def __init__(self, config, GK_know=False):
         super().__init__()
         self.config = config
         self.word_embeddings = nn.Embedding(config.vocab_size, config.hidden_size, padding_idx=config.pad_token_id)
@@ -60,7 +60,7 @@ class BertEmbeddings(nn.Module):
         # any TensorFlow checkpoint file
         self.LayerNorm = nn.LayerNorm(config.hidden_size, eps=config.layer_norm_eps)
         self.dropout = nn.Dropout(config.hidden_dropout_prob)
-        if not SKG_know:
+        if not GK_know:
             self.position_embeddings = nn.Embedding(config.max_position_embeddings, config.hidden_size)
             # position_ids (1, len position emb) is contiguous in memory and exported when serialized
             self.register_buffer("position_ids", torch.arange(config.max_position_embeddings).expand((1, -1)))
@@ -578,13 +578,13 @@ class BertModel(BertPreTrainedModel):
     input to the forward pass.
     """
 
-    def __init__(self, config, add_pooling_layer=True, SKG_know=False):
+    def __init__(self, config, add_pooling_layer=True, GK_know=False):
         super().__init__(config)
         self.config = config
 
-        self.embeddings = BertEmbeddings(config, SKG_know)
+        self.embeddings = BertEmbeddings(config, GK_know)
 
-        if not SKG_know:
+        if not GK_know:
             self.encoder = BertEncoder(config)
 
             self.pooler = BertPooler(config) if add_pooling_layer else None

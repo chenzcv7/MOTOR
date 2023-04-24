@@ -15,8 +15,8 @@ import torch.nn.functional as F
 
 from models.blip import create_vit, init_tokenizer, load_checkpoint
 
-from medical_knowledge.knowledge import create_knowledge
-from medical_knowledge.SKG_knowledge import *
+from medical_knowledge.SK_knowledge import create_knowledge
+from medical_knowledge.GK_knowledge import *
 from models.tagencoder import TagEncoder
 
 class BLIP_Pretrain(nn.Module):
@@ -70,7 +70,7 @@ class BLIP_Pretrain(nn.Module):
         self.text_encoder_m = BertModel(config=encoder_config, add_pooling_layer=False)      
         self.text_proj_m = nn.Linear(text_width, embed_dim)
 
-        # if self.args.SKG_know:
+        # if self.args.GK_know:
         c = copy.deepcopy
         attn = MultiHeadedAttention(6, 768)
         ff = PositionwiseFeedForward(768, 1024, 0.1)
@@ -122,7 +122,7 @@ class BLIP_Pretrain(nn.Module):
                       'Fracture', 'Lung Lesion', 'Lung Opacity', 'No Finding', 'Pleural Effusion',
                       'Pleural Other', 'Pneumonia', 'Pneumothorax', 'Support Devices']
 
-    def forward(self, image, caption, knowledge_skg, knowledge_tc, label, alpha):
+    def forward(self, image, caption, knowledge_gk, knowledge_sk, label, alpha):
 
         with torch.no_grad():
             self.temp.clamp_(0.001,0.5)
@@ -139,8 +139,8 @@ class BLIP_Pretrain(nn.Module):
 
         ###============== Obtain Knowledge ===================###
 
-        #---------------------SKG---------------------
-        tag_output = self.tag_encoder(knowledge_skg, image.device)
+        #---------------------GK---------------------
+        tag_output = self.tag_encoder(knowledge_gk, image.device)
 
         image_embeds, vis_attn2 = self.cross_attn(image_embeds, tag_output)
 
@@ -162,9 +162,9 @@ class BLIP_Pretrain(nn.Module):
         loss_mlc = self.criterion(image_label_similarity, label)
 
 
-        # ---------------------TC---------------------
+        # ---------------------SK---------------------
         image_embeds = self.create_knowledge.get_image_knowledge(image.device, image_feat, image_embeds, k=3)
-        self.create_knowledge(image.device, text_feat, knowledge_tc)
+        self.create_knowledge(image.device, text_feat, knowledge_sk)
         image_atts = torch.ones(image_embeds.size()[:-1], dtype=torch.long).to(image.device)
         image_feat = F.normalize(self.vision_proj(image_embeds[:, 0, :]), dim=-1)
 
@@ -181,11 +181,11 @@ class BLIP_Pretrain(nn.Module):
 
             ###============== Obtain Knowledge ===================###
 
-            # ---------------------SKG---------------------
+            # ---------------------GK---------------------
             image_embeds_m, _ = self.cross_attn_m(image_embeds_m, tag_output)
             image_feat_m = F.normalize(self.vision_proj_m(image_embeds_m[:, 0, :]), dim=-1)
 
-            # ---------------------TC---------------------
+            # ---------------------SK---------------------
             image_embeds_m = self.create_knowledge.get_image_knowledge(image.device, image_feat_m, image_embeds_m, k=3)
             image_feat_m = F.normalize(self.vision_proj_m(image_embeds_m[:, 0, :]), dim=-1)
 

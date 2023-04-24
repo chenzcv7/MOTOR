@@ -1,13 +1,13 @@
 from models.med import BertConfig, BertModel
 from transformers import BertTokenizer
-from medical_knowledge.knowledge import create_knowledge
+from medical_knowledge.SK_knowledge import create_knowledge
 
 import torch
 from torch import nn
 import torch.nn.functional as F
 
 from models.blip import create_vit, init_tokenizer, load_checkpoint
-from medical_knowledge.SKG_knowledge import *
+from medical_knowledge.GK_knowledge import *
 from models.tagencoder import TagEncoder
 
 class BLIP_Retrieval(nn.Module):

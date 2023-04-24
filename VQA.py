@@ -196,9 +196,9 @@ if __name__ == '__main__':
     parser.add_argument('--resume', type=str, help='whether to resume the training from existing checkpoints.')
     parser.add_argument('--setting', type=str, help='the setting to be used.')
     parser.add_argument('--have_know', default=False, type=bool)
-    parser.add_argument('--SKG_know', default=False, type=bool)
+    parser.add_argument('--GK_know', default=False, type=bool)
     parser.add_argument('--concat', default=False, type=bool)
-    parser.add_argument('--SKG_out', type=str, default='image', choices=['image', 'tag'],
+    parser.add_argument('--GK_out', type=str, default='image', choices=['image', 'tag'],
                         help='the dataset to be used.')
 
 

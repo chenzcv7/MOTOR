@@ -19,7 +19,7 @@ import torch.nn.functional as F
 import os
 from urllib.parse import urlparse
 from timm.models.hub import download_cached_file
-from medical_knowledge.SKG_knowledge import *
+from medical_knowledge.GK_knowledge import *
 from models.tagencoder import TagEncoder
 
 class BLIP_Base(nn.Module):

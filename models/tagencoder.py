@@ -188,10 +188,10 @@ class TagEncoder(nn.Module):
         encoder_config = BertConfig.from_json_file(med_config)
         encoder_config.encoder_width = 768
         if args.task == 'pretrain':
-            self.bert = BertModel.from_pretrained('allenai/scibert_scivocab_uncased',config=encoder_config, add_pooling_layer=False, SKG_know=True)
+            self.bert = BertModel.from_pretrained('allenai/scibert_scivocab_uncased',config=encoder_config, add_pooling_layer=False, GK_know=True)
             self.bert.resize_token_embeddings(len(self.tokenizer))
         else:
-            self.bert = BertModel(config=BertConfig.from_json_file('configs/tag_config_sci_down.json'), add_pooling_layer=False, SKG_know=True)
+            self.bert = BertModel(config=BertConfig.from_json_file('configs/tag_config_sci_down.json'), add_pooling_layer=False, GK_know=True)
 
     def forward(self,x, device):
         x = self.get_tag_embeds(x, device)

@@ -38,7 +38,7 @@ def train(model, data_loader, optimizer, epoch, warmup_steps, device, scheduler,
     if args.distributed:
         data_loader.sampler.set_epoch(epoch)
 
-    for i, (image, caption, knowledge_skg, knowledge_tc, label) in enumerate(metric_logger.log_every(data_loader, print_freq, header)):
+    for i, (image, caption, knowledge_gk, knowledge_sk, label) in enumerate(metric_logger.log_every(data_loader, print_freq, header)):
 
         optimizer.zero_grad()
 
@@ -51,7 +51,7 @@ def train(model, data_loader, optimizer, epoch, warmup_steps, device, scheduler,
         else:
             alpha = config['alpha'] * min(1, i / len(data_loader))
 
-        loss_ita, loss_itm, loss_lm, loss_mlc = model(image, caption, knowledge_skg, knowledge_tc, label, alpha=alpha)
+        loss_ita, loss_itm, loss_lm, loss_mlc = model(image, caption, knowledge_gk, knowledge_sk, label, alpha=alpha)
         loss = loss_ita + loss_itm + loss_lm + loss_mlc
 
         loss.backward()
