@@ -1,0 +1,23 @@
+
+# size of vit model; base or large
+vit: 'base'
+vit_grad_ckpt: False
+vit_ckpt_layer: 0
+
+image_size: 224
+batch_size: 75
+
+queue_size: 65536
+alpha: 0.4
+
+optimizer: {opt: adamW, lr: 5e-5, weight_decay: 0.02}
+schedular: {sched: cosine, lr: 1e-4, epochs: 30, min_lr: 1e-5, decay_rate: 1, warmup_lr: 1e-5, warmup_epochs: 20, cooldown_epochs: 0}
+
+
+
+
+
+
+
+
+
