@@ -1,6 +1,6 @@
 # Towards Medical Artificial General Intelligence via Knowledge-Enhanced Multimodal Pretraining
 <br>
-The code of paper "Towards Medical Artificial General Intelligence via Knowledge-Enhanced Multimodal Pretraining"[[Paper]](https://arxiv.org/abs/2304.14204) has been tested on PyTorch 1.10. To install the dependencies, run
+The code of paper ["Towards Medical Artificial General Intelligence via Knowledge-Enhanced Multimodal Pretraining"](https://arxiv.org/abs/2304.14204) has been tested on PyTorch 1.10. To install the dependencies, run
 
 ```
 pip install -r requirements.txt
