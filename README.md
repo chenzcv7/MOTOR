@@ -1,7 +1,7 @@
 # Towards Medical Artificial General Intelligence via Knowledge-Enhanced Multimodal Pretraining
 <br>
 
-Paper: ["Towards Medical Artificial General Intelligence via Knowledge-Enhanced Multimodal Pretraining"](https://arxiv.org/abs/2304.14204)
+Code of our paper "Towards Medical Artificial General Intelligence via Knowledge-Enhanced Multimodal Pretraining" [[Paper]](https://arxiv.org/abs/2304.14204)
 
 # Environment Installation
 Our code has been tested on PyTorch 1.10. To install the dependencies, run
@@ -11,12 +11,12 @@ pip install -r requirements.txt
 ```
 
 
-# Dataset Installation
-**MIMIC-CXR**: visit https://physionet.org/content/mimic-cxr/ to install <br>
-**IU Xray**: visit https://openi.nlm.nih.gov/faq to install <br>
-**Chexpert 14**: visit https://nihcc.app.box.com/v/ChestXray-NIHCC to install <br>
-**VQA-RAD**: visit https://osf.io/89kps/ to install <br>
-**SLAKE**: visit https://drive.google.com/file/d/1EZ0WpO5Z6BJUqC3iPBQJJS1INWSMsh7U/view to install
+# Dataset
+**MIMIC-CXR**: Download from https://physionet.org/content/mimic-cxr/ <br>
+**IU Xray**: Download from https://openi.nlm.nih.gov/faq <br>
+**Chexpert 14**: Download from https://nihcc.app.box.com/v/ChestXray-NIHCC <br>
+**VQA-RAD**: Download from https://osf.io/89kps/ <br>
+**SLAKE**: Download from https://drive.google.com/file/d/1EZ0WpO5Z6BJUqC3iPBQJJS1INWSMsh7U/view 
 # Pretrain
 ```
 python -m torch.distributed.run --nproc_per_node=2 Pretrain.py  --output_dir ./output/Pretrain
@@ -56,7 +56,7 @@ python VQA_slake.py --test_C --add_typeatt2 --pretrained [Pretrained checkpoint]
 If you find this repository is useful, please consider citing our paper:
 
 ```
-@misc{lin2023medical,
+@article{Lin2023TowardsMA,
       title={Towards Medical Artificial General Intelligence via Knowledge-Enhanced Multimodal Pretraining}, 
       author={Bingqian Lin and Zicong Chen and Mingjie Li and Haokun Lin and Hang Xu and Yi Zhu and Jianzhuang Liu and Wenjia Cai and Lei Yang and Shen Zhao and Chenfei Wu and Ling Chen and Xiaojun Chang and Yi Yang and Lei Xing and Xiaodan Liang},
       journal={arXiv preprint arXiv:2304.14204},
