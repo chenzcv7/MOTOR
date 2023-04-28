@@ -1,10 +1,14 @@
 # Towards Medical Artificial General Intelligence via Knowledge-Enhanced Multimodal Pretraining
 <br>
-The code of paper "Towards Medical Artificial General Intelligence via Knowledge-Enhanced Multimodal Pretraining"[[Paper]](https://arxiv.org/abs/2304.14204) has been tested on PyTorch 1.10. To install the dependencies, run
+
+The code of paper
+["Towards Medical Artificial General Intelligence via Knowledge-Enhanced Multimodal Pretraining"](https://arxiv.org/abs/2304.14204)
+has been tested on PyTorch 1.10. To install the dependencies, run
 
 ```
 pip install -r requirements.txt
 ```
+
 
 # Dataset Installation
 **MIMIC-CXR**: visit https://physionet.org/content/mimic-cxr/ to install <br>
@@ -43,4 +47,19 @@ python VQA.py --test_C --add_typeatt2 --pretrained [Pretrained checkpoint] --set
 SLAKE
 ```
 python VQA_slake.py --test_C --add_typeatt2 --pretrained [Pretrained checkpoint] --setting VQA-SLAKE
+```
+
+# Citation
+
+If you find this repository is useful, please consider citing our paper:
+
+```
+@misc{lin2023medical,
+      title={Towards Medical Artificial General Intelligence via Knowledge-Enhanced Multimodal Pretraining}, 
+      author={Bingqian Lin and Zicong Chen and Mingjie Li and Haokun Lin and Hang Xu and Yi Zhu and Jianzhuang Liu and Wenjia Cai and Lei Yang and Shen Zhao and Chenfei Wu and Ling Chen and Xiaojun Chang and Yi Yang and Lei Xing and Xiaodan Liang},
+      year={2023},
+      eprint={2304.14204},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI}
+}
 ```
