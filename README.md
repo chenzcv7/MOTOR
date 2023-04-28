@@ -3,7 +3,7 @@
 
 Paper: ["Towards Medical Artificial General Intelligence via Knowledge-Enhanced Multimodal Pretraining"](https://arxiv.org/abs/2304.14204)
 
-# Setup
+# Environment Installation
 Our code has been tested on PyTorch 1.10. To install the dependencies, run
 
 ```
