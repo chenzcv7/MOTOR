@@ -1,9 +1,10 @@
 # Towards Medical Artificial General Intelligence via Knowledge-Enhanced Multimodal Pretraining
 <br>
 
-The code of paper
-["Towards Medical Artificial General Intelligence via Knowledge-Enhanced Multimodal Pretraining"](https://arxiv.org/abs/2304.14204)
-has been tested on PyTorch 1.10. To install the dependencies, run
+Paper: ["Towards Medical Artificial General Intelligence via Knowledge-Enhanced Multimodal Pretraining"](https://arxiv.org/abs/2304.14204)
+
+# Setup
+Our code has been tested on PyTorch 1.10. To install the dependencies, run
 
 ```
 pip install -r requirements.txt
@@ -13,6 +14,7 @@ pip install -r requirements.txt
 # Dataset Installation
 **MIMIC-CXR**: visit https://physionet.org/content/mimic-cxr/ to install <br>
 **IU Xray**: visit https://openi.nlm.nih.gov/faq to install <br>
+**Chexpert 14**: visit https://nihcc.app.box.com/v/ChestXray-NIHCC to install <br>
 **VQA-RAD**: visit https://osf.io/89kps/ to install <br>
 **SLAKE**: visit https://drive.google.com/file/d/1EZ0WpO5Z6BJUqC3iPBQJJS1INWSMsh7U/view to install
 # Pretrain
@@ -57,9 +59,7 @@ If you find this repository is useful, please consider citing our paper:
 @misc{lin2023medical,
       title={Towards Medical Artificial General Intelligence via Knowledge-Enhanced Multimodal Pretraining}, 
       author={Bingqian Lin and Zicong Chen and Mingjie Li and Haokun Lin and Hang Xu and Yi Zhu and Jianzhuang Liu and Wenjia Cai and Lei Yang and Shen Zhao and Chenfei Wu and Ling Chen and Xiaojun Chang and Yi Yang and Lei Xing and Xiaodan Liang},
-      year={2023},
-      eprint={2304.14204},
-      archivePrefix={arXiv},
-      primaryClass={cs.AI}
+      journal={arXiv preprint arXiv:2304.14204},
+      year={2023}
 }
 ```
