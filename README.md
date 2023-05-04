@@ -12,7 +12,7 @@ pip install -r requirements.txt
 
 
 # Dataset
-**MIMIC-CXR**: Download from https://physionet.org/content/mimic-cxr/ <br>
+**MIMIC-CXR**: Download from https://physionet.org/content/mimic-cxr/2.0.0/ <br>
 **IU Xray**: Download from https://openi.nlm.nih.gov/faq <br>
 **Chexpert 14**: Download from https://nihcc.app.box.com/v/ChestXray-NIHCC <br>
 **VQA-RAD**: Download from https://osf.io/89kps/ <br>
